@@ -1,0 +1,63 @@
+@import "../../../../assets/styles/_variables.scss";
+@import "../../../../assets/styles/_mixins";
+
+header.header {
+  padding: 40px 0;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include Montserrat-Medium-16;
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 614px;
+
+      nav {
+        color: $base-text-color;
+
+        ul {
+          display: flex;
+          list-style: none;
+          cursor: pointer;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0;
+          margin: 0;
+          width: 429px;
+
+          li.active {
+              color: #709FDC;
+          }
+        }
+      }
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 369px;
+
+      .header-right-phone {
+        text-decoration: none;
+        color: #709FDC;
+      }
+
+      .header-right-login {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 84px;
+
+        a {
+          text-decoration: none;
+          color: $base-text-color;
+        }
+      }
+    }
+  }
+}
