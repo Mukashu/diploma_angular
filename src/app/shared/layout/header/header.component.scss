@@ -30,7 +30,7 @@ header.header {
           width: 429px;
 
           li.active {
-              color: #709FDC;
+              color: $base-title-color;
           }
         }
       }
@@ -44,7 +44,7 @@ header.header {
 
       .header-right-phone {
         text-decoration: none;
-        color: #709FDC;
+        color: $base-title-color;
       }
 
       .header-right-login {
