@@ -40,7 +40,8 @@ header.header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      width: 369px;
+      min-width: 369px;
+      gap: 15px;
 
       .header-right-phone {
         text-decoration: none;
@@ -51,7 +52,12 @@ header.header {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        width: 84px;
+        min-width: 84px;
+        gap: 7px;
+
+        svg {
+          min-width: 24px;
+        }
 
         a {
           text-decoration: none;

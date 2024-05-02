@@ -58,7 +58,7 @@
           Войти
         </a>
         <a *ngIf="isLogged" [matMenuTriggerFor]="menu">
-          Привет, Пользователь
+          Привет, {{ user }}!
         </a>
         <mat-menu #menu="matMenu">
           <button mat-menu-item>

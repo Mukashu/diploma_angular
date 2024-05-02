@@ -68,7 +68,7 @@ export class SignupComponent implements OnInit {
               this._snackBar.open('Ошибка регистрации');
             }
           }
-        })
+        });
     }
   }
 
