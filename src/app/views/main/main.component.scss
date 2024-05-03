@@ -1,0 +1,85 @@
+@import "../../../assets/styles/_variables";
+@import "../../../assets/styles/_mixins";
+
+.main {
+
+  .container {
+    position: relative;
+
+    .main-carousel {
+
+
+      .main-item {
+        height: 500px;
+        padding-left: 80px;
+        box-sizing: border-box;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        .main-category {
+          font-family: 'Montserrat', sans-serif;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 12px;
+          letter-spacing: 0.4em;
+          text-transform: uppercase;
+          color: $base-title-color;
+        }
+
+        .main-title {
+          font-family: 'Lora', sans-serif;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 50px;
+          line-height: 130%;
+          color: #FFFFFF;
+          max-width: 575px;
+
+          ::ng-deep span {
+            color: $base-title-color;
+          }
+        }
+
+        .main-text {
+          font-family: 'Montserrat', sans-serif;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 24px;
+          line-height: 130%;
+          color: #FFFFFF;
+          max-width: 456px;
+          margin-bottom: 10px;
+          margin-top: 20px;
+        }
+
+        button.main-carousel-button {
+          max-width: 163px;
+          margin-top: 40px;
+        }
+      }
+    }
+
+    .main-arrows {
+
+      .move-backward {
+        position: absolute;
+        top: 236px;
+        left: 10px;
+        cursor: pointer;
+        z-index: 1;
+      }
+
+      .move-forward {
+        position: absolute;
+        top: 236px;
+        right: 10px;
+        cursor: pointer;
+        z-index: 1;
+      }
+    }
+  }
+}
+
+

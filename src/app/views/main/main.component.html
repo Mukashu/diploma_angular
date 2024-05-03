@@ -1,1 +1,27 @@
-<p>main works!</p>
+<section class="main">
+  <div class="container">
+    <div class="main-carousel">
+
+      <owl-carousel-o [options]="mainCarouselOptions" #mainCar>
+        <ng-template carouselSlide *ngFor="let item of main">
+          <div class="main-item" style="background-image: url('./assets/images/carousels/{{item.image}}')">
+            <div class="main-category">{{ item.category }}</div>
+            <div [innerHTML]="item.title" class="main-title"></div>
+            <div class="main-text" *ngIf="item.text">{{ item.text }}</div>
+            <button class="button main-carousel-button">Подробнее</button>
+          </div>
+        </ng-template>
+      </owl-carousel-o>
+
+
+    </div>
+    <div class="main-arrows">
+      <a class="move-backward" (click)="mainCar.prev()">
+        <img src="./assets/images/carousels/main-prev-arrow.png" alt="back">
+      </a>
+      <a class="move-forward" (click)="mainCar.next()">
+        <img src="./assets/images/carousels/main-next-arrow.png" alt="next">
+      </a>
+    </div>
+  </div>
+</section>

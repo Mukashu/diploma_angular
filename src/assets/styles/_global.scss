@@ -57,3 +57,30 @@ html, body {
   font-size: 16px;
   color: $base-text-color;
 }
+
+.owl-theme .owl-nav.disabled+.owl-dots {
+  margin-top: 0;
+  position: absolute;
+  bottom: 20px;
+  right: 575px;
+}
+
+.owl-theme .owl-dots .owl-dot {
+
+  span {
+    background-color: transparent;
+    border: 1px solid #FFFFFF;
+    margin: 0 10px;
+  }
+
+  &:hover {
+
+    span {
+      background-color: transparent;
+    }
+  }
+}
+
+.owl-theme .owl-dots .owl-dot.active span {
+  background-color: #FFFFFF;
+}
