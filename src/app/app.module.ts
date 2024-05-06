@@ -12,6 +12,7 @@ import {MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule} from "@angular/materia
 import {HttpClientModule} from "@angular/common/http";
 import {MatMenuModule} from "@angular/material/menu";
 import {CarouselModule} from "ngx-owl-carousel-o";
+import {SharedModule} from "./shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {CarouselModule} from "ngx-owl-carousel-o";
     MatMenuModule,
     CarouselModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    SharedModule
   ],
   providers: [
     {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500}}

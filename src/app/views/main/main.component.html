@@ -1,7 +1,6 @@
 <section class="main">
   <div class="container">
     <div class="main-carousel">
-
       <owl-carousel-o [options]="mainCarouselOptions" #mainCar>
         <ng-template carouselSlide *ngFor="let item of main">
           <div class="main-item" style="background-image: url('./assets/images/carousels/{{item.image}}')">
@@ -12,8 +11,6 @@
           </div>
         </ng-template>
       </owl-carousel-o>
-
-
     </div>
     <div class="main-arrows">
       <a class="move-backward" (click)="mainCar.prev()">
@@ -21,6 +18,99 @@
       </a>
       <a class="move-forward" (click)="mainCar.next()">
         <img src="./assets/images/carousels/main-next-arrow.png" alt="next">
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="container">
+    <div class="services-title">
+      Услуги, которые мы предлагаем
+    </div>
+    <div class="services-cards">
+      <div class="services-card" *ngFor="let item of services">
+        <div class="services-card-image"
+             style="background-image: url('./assets/images/page/main/{{item.image}}')"></div>
+        <div class="services-card-title">{{ item.title }}</div>
+        <div class="services-card-text">{{ item.text }}</div>
+        <div class="services-card-price">
+          <div>От {{ item.price }}₽</div>
+          <button class="button services-button">Подробнее</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="container">
+    <div class="about-image">
+      <img src="./assets/images/page/main/about.png" alt="aboutUs">
+    </div>
+    <div class="about-info">
+      <div class="about-title">Кто мы и чем мы занимаемся?</div>
+      <div class="about-text">
+        <span>АйтиШторм</span> — это ваш помощник №1 при решении таких вопросов, как продвижение в сети, разработка
+        сайтов для бизнеса и личного бренда, сторисмейкинг, копирайтинг, маркетинг, разработка визуальной концепции и
+        создание инфопродуктов. Компания была основана в 2019 году и за всё это время смогла выйти в ТОП-10 агенств,
+        предлагающих услуги продвижения в сети.
+      </div>
+      <div class="about-advantages">
+        <div class="about-advantages-title">Наши преимущества</div>
+        <div class="about-advantages-info">
+          <div class="advantage" *ngFor="let item of advantages">
+            <div class="advantage-circle">
+              <div class="advantage-number">{{ item.number }}</div>
+            </div>
+            <div [innerHTML]="item.text" class="advantage-text"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="best-articles">
+  <div class="container">
+    <div class="best-articles-title">Популярные статьи из блога</div>
+    <div class="best-articles-cards">
+      <app-article-card [article]="article" *ngFor="let article of articles"></app-article-card>
+    </div>
+    <a class="best-articles-to-blog">
+      Перейти в блог
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M5.44392 1C5.59871 1 5.75349 1.05652 5.87569 1.17765L11.1873 6.44254C12.0508 7.29849 12.0508 8.70353 11.1873 9.55948L5.87569 14.8244C5.63944 15.0585 5.2484 15.0585 5.01215 14.8244C4.7759 14.5902 4.7759 14.2026 5.01215 13.9684L10.3238 8.70353C10.7148 8.31593 10.7148 7.68608 10.3238 7.29849L5.01215 2.0336C4.7759 1.79942 4.7759 1.41182 5.01215 1.17765C5.13435 1.0646 5.28914 1 5.44392 1Z"
+          fill="#709FDC"/>
+      </svg>
+    </a>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="container">
+    <div class="reviews-title">Отзывы о нашей работе</div>
+    <div class="reviews-carousel">
+      <owl-carousel-o [options]="reviewCarouselOptions" #reviewCar>
+        <ng-template carouselSlide *ngFor="let review of reviews">
+          <div class="reviews-item">
+            <div class="reviews-item-head">
+              <div class="review-item-image"
+                   style="background-image: url('./assets/images/carousels/{{review.image}}')"></div>
+              <div class="review-item-name">{{ review.name }}</div>
+            </div>
+            <div class="review-item-text">{{ review.text }}</div>
+          </div>
+        </ng-template>
+      </owl-carousel-o>
+    </div>
+    <div class="reviews-arrows">
+      <a class="review-backward" (click)="reviewCar.prev()">
+        <img src="./assets/images/carousels/reviews-previous-arrow.png" alt="back">
+      </a>
+      <a class="review-forward" (click)="reviewCar.next()">
+        <img src="./assets/images/carousels/reviews-next-arrow.png" alt="next">
       </a>
     </div>
   </div>

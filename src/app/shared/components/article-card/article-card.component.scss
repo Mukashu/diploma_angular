@@ -1,0 +1,52 @@
+@import "../../../../assets/styles/_variables";
+
+.article-card {
+  width: 291px;
+  height: 571px;
+  box-sizing: border-box;
+  position: relative;
+
+  .article-card-category {
+    position: absolute;
+    top: 10px;
+    right: 9px;
+    padding: 10px 18px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 11px;
+    text-align: center;
+    color: $base-title-color;
+    z-index: 2;
+    background-color: #FFFFFF;
+  }
+
+  .article-card-image {
+    width: 291px;
+    height: 291px;
+    border-radius: 5px;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 15px;
+  }
+
+  .article-card-title {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 130%;
+    color: $base-title-color;
+    margin-bottom: 20px;
+  }
+
+  .article-card-text {
+    line-height: 130%;
+    color: $base-text-color;
+  }
+
+  .article-card-detail {
+    color: $base-title-color;
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+    text-underline-offset: 2px;
+  }
+}
