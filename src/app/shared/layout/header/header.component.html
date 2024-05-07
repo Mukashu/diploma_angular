@@ -1,7 +1,7 @@
 <header class="header">
   <div class="container">
     <div class="header-left">
-      <a href="#" class="logo">
+      <a routerLink="/" class="logo">
         <svg width="85" height="47" viewBox="0 0 85 47" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M52.7143 5.83934V11.3036C52.7143 12.6643 52.2643 13.8108 51.4607 14.6036C50.6679 15.4072 49.5214 15.8572 48.1607 15.8572V17.7965C48.1607 18.525 47.3464 18.9643 46.7464 18.5572L45.7072 17.8715C45.8036 17.5393 45.8464 17.175 45.8464 16.7893V12.4286C45.8464 10.2429 44.3893 8.78577 42.2036 8.78577H34.9286C34.7786 8.78577 34.6393 8.7965 34.5 8.80722V5.83934C34.5 3.1072 36.3214 1.28577 39.0536 1.28577H48.1607C50.8929 1.28577 52.7143 3.1072 52.7143 5.83934Z"
@@ -21,19 +21,23 @@
       <nav>
         <ul>
           <li>
-            <a>Услуги</a>
+            <a [class.active]="selectedLink==='services'" (click)="useLink('services')" routerLink="/"
+               fragment="services">Услуги</a>
           </li>
           <li>
-            <a>О нас</a>
-          </li>
-          <li class="active">
-            <a>Статьи</a>
+            <a [class.active]="selectedLink==='about'" (click)="useLink('about')" routerLink="/" fragment="about">О
+              нас</a>
           </li>
           <li>
-            <a>Отзывы</a>
+            <a [class.active]="selectedLink==='articles'" (click)="useLink('articles')" routerLink="/"
+               fragment="articles">Статьи</a>
           </li>
           <li>
-            <a>Контакты</a>
+            <a [class.active]="selectedLink==='reviews'" (click)="useLink('reviews')" routerLink="/" fragment="reviews">Отзывы</a>
+          </li>
+          <li>
+            <a [class.active]="selectedLink==='contacts'" (click)="useLink('contacts')" routerLink="/"
+               fragment="contacts">Контакты</a>
           </li>
         </ul>
       </nav>

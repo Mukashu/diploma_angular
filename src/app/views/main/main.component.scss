@@ -2,6 +2,7 @@
 @import "../../../assets/styles/_mixins";
 
 .main {
+  padding-bottom: 60px;
 
   .container {
     position: relative;
@@ -83,7 +84,7 @@
 }
 
 .services {
-  padding: 120px 0;
+  padding: 60px 0;
 
   .container {
 
@@ -151,8 +152,7 @@
 }
 
 .about {
-  padding-bottom: 120px;
-  padding-right: 9px;
+  padding: 60px 0 9px 0;
 
   .container {
     display: flex;
@@ -243,6 +243,7 @@
 }
 
 .best-articles {
+  padding: 60px 0;
 
   .container {
 
@@ -270,14 +271,12 @@
       font-size: 20px;
       color: $base-title-color;
       cursor: pointer;
-
-
     }
   }
 }
 
 .reviews {
-  padding: 120px 0;
+  padding: 60px 0;
 
   .container {
     position: relative;
@@ -348,6 +347,51 @@
       }
     }
   }
+}
+
+.contacts {
+  padding: 60px 0 120px 0;
+
+  .container {
+    display: flex;
+    gap: 26px;
+
+    .contacts-info {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 501px;
+
+      .contacts-info-head {
+        font-family: 'Lora', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 38px;
+        color: $base-title-color;
+      }
+
+      .contacts-info-social {
+
+        .contacts-info-social-icons {
+          display: flex;
+          gap: 20px;
+        }
+      }
+    }
+  }
+}
+
+.contacts-info-title {
+  font-weight: 500;
+  font-size: 20px;
+  color: $base-title-color;
+  margin-bottom: 10px;
+}
+
+.contacts-info-text {
+  color: $base-text-color;
+  text-decoration: none;
+  line-height: 130%;
 }
 
 

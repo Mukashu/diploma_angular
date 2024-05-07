@@ -5,6 +5,7 @@ import {Router} from "@angular/router";
 import {UserService} from "../../services/user.service";
 import {UserInfoType} from "../../../../types/user-info.type";
 import {DefaultResponseType} from "../../../../types/default-response.type";
+import {ActiveLinkService} from "../../services/active-link.service";
 
 @Component({
   selector: 'app-header',
@@ -15,10 +16,12 @@ export class HeaderComponent implements OnInit {
 
   isLogged: boolean = false;
   user: string = '';
+  selectedLink: string = '';
 
   constructor(private authService: AuthService,
               private userService: UserService,
               private _snackBar: MatSnackBar,
+              private activeLinkService: ActiveLinkService,
               private router: Router) {
     this.isLogged = this.authService.getIsLoggedIn();
 
@@ -29,7 +32,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.isLogged$.subscribe({
-      next: (isLoggedIn: boolean) => {
+      next: (isLoggedIn: boolean): void => {
         this.isLogged = isLoggedIn;
 
         if (this.isLogged) {
@@ -37,15 +40,21 @@ export class HeaderComponent implements OnInit {
         }
       }
     });
+
+    this.activeLinkService.activeLink$.subscribe({
+      next: (link: string): void => {
+        this.selectedLink = link;
+      }
+    });
   }
 
   logout(): void {
     this.authService.logout()
       .subscribe({
-        next: () => {
+        next: (): void => {
           this.doLogout();
         },
-        error: () => {
+        error: (): void => {
           this.doLogout();
         }
       });
@@ -79,5 +88,9 @@ export class HeaderComponent implements OnInit {
           this.doLogout();
         }
       });
+  }
+
+  useLink(link: string): void {
+    this.selectedLink = link;
   }
 }

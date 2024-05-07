@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActiveLinkService} from "../../services/active-link.service";
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private activeLinkService: ActiveLinkService) { }
 
   ngOnInit(): void {
+  }
+
+  activeLink(link: string) {
+    this.activeLinkService.activeLink$.next(link);
   }
 
 }

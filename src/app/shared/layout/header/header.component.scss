@@ -29,8 +29,16 @@ header.header {
           margin: 0;
           width: 429px;
 
-          li.active {
-              color: $base-title-color;
+          li {
+
+            a {
+              text-decoration: none;
+              color: $base-text-color;
+
+              &.active {
+                color: $base-title-color;
+              }
+            }
           }
         }
       }
