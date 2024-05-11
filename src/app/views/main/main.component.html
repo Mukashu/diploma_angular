@@ -77,7 +77,7 @@
     <div class="best-articles-cards">
       <app-article-card [article]="article" *ngFor="let article of articles"></app-article-card>
     </div>
-    <a class="best-articles-to-blog">
+    <a class="best-articles-to-blog" routerLink="/blog" (click)="removeActiveLink()">
       Перейти в блог
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -119,8 +119,9 @@
 <section class="contacts" id="contacts">
   <div class="container">
     <iframe
-      src="https://yandex.ru/map-widget/v1/?um=constructor%3Ac9da6158e74b16ae8184789b48a999f85f63fb59ba2200933c80a8ad2f816f9b&amp;source=constructor"
-      width="607" height="438" frameborder="0"></iframe>
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2246.3125827311096!2d37.58509717788005!3d55.73569767307794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54ba4378d4c5b%3A0x385ea1682a25ed83!2z0J_RgNC10YHQvdC10L3RgdC60LDRjyDQvdCw0LEuLCAxMiwg0JzQvtGB0LrQstCwLCDQoNC-0YHRgdC40Y8sIDEyMzMxNw!5e0!3m2!1sru!2sby!4v1715163694360!5m2!1sru!2sby"
+      width="607" height="438" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
     <div class="contacts-info">
       <div class="contacts-info-head">Контакты</div>
       <div class="contacts-info-address">

@@ -1,0 +1,50 @@
+@import "../../../../assets/styles/_variables";
+
+.category-filter {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  right: 0;
+
+  .category-filter-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 23px;
+    font-size: 16px;
+    min-width: 257px;
+    border-left: 2px solid #B9D5FD;
+    border-right: 2px solid #B9D5FD;
+    color: #BEBEBE;
+    background-color: #FFFFFF;
+    cursor: pointer;
+
+    &:first-child {
+      border-top: 2px solid #B9D5FD;
+      border-radius: 5px 5px 0 0;
+      background-color: #B9D5FD;
+      color: $base-text-color;
+    }
+
+    &:last-child {
+      border-bottom: 2px solid #B9D5FD;
+      border-radius: 0 0 5px 5px;
+    }
+
+    &:not(:first-child) {
+      padding-right: 25px;
+    }
+
+    &:hover {
+      color: $base-text-color;
+    }
+
+    &.active {
+      color: $base-text-color;
+    }
+
+    span.sign {
+      font-size: 24px;
+    }
+  }
+}

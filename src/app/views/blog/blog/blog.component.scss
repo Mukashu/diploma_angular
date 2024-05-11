@@ -1,0 +1,107 @@
+@import "../../../../assets/styles/_variables";
+@import "../../../../assets/styles/_mixins";
+
+.blog {
+  padding: 80px 0 120px 0;
+
+  .container {
+
+    .blog-title {
+      @include Lora-Regular-38;
+      color: $base-title-color;
+      margin-bottom: 40px;
+    }
+
+    .blog-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+      position: relative;
+      min-height: 40px;
+
+      .blog-applied-filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        max-width: 900px;
+
+        .blog-applied-filter {
+          box-sizing: border-box;
+          background: #FFFFFF;
+          border: 2px solid $base-title-color;
+          border-radius: 5px;
+          font-size: 16px;
+          color: $base-title-color;
+          padding: 8px 20px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+
+          a {
+            display: flex;
+            text-decoration: none;
+            cursor: pointer;
+          }
+        }
+      }
+
+      .blog-sorting {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        padding-top: 10px;
+
+        span {
+          width: 120px;
+          margin-right: 8px;
+          font-size: 16px;
+          color: $base-text-color;
+        }
+      }
+    }
+
+    .blog-body {
+
+      .blog-body-articles {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px 24px;
+      }
+    }
+
+    .pagination {
+      padding-top: 60px;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      font-size: 20px;
+      color: $base-text-color;
+      justify-content: center;
+
+      a {
+        padding-top: 5px;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .pagination-pages {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        .pagination-page {
+          box-sizing: border-box;
+          padding: 10px;
+          cursor: pointer;
+
+          &.active {
+            color: $base-title-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+

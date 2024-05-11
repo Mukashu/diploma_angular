@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {OwlOptions} from "ngx-owl-carousel-o";
 import {ArticleService} from "../../shared/services/article.service";
 import {ArticleType} from "../../../types/article.type";
+import {ActivatedRoute} from "@angular/router";
+import {ViewportScroller} from "@angular/common";
+import {ActiveLinkService} from "../../shared/services/active-link.service";
 
 @Component({
   selector: 'app-main',
@@ -151,7 +154,10 @@ export class MainComponent implements OnInit {
     nav: false
   };
 
-  constructor(private articleService: ArticleService) {
+  constructor(private articleService: ArticleService,
+              private activeLinkService: ActiveLinkService,
+              private viewportScroller: ViewportScroller,
+              private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -161,6 +167,17 @@ export class MainComponent implements OnInit {
           this.articles = data;
         }
       });
+
+    this.route.fragment.subscribe(fragment => {
+      if (fragment) {
+        this.viewportScroller.scrollToAnchor(fragment);
+      }
+    });
+  }
+
+  removeActiveLink(): void {
+    this.activeLinkService.removeActiveLink();
+    this.activeLinkService.activeLink$.next(null);
   }
 
 }

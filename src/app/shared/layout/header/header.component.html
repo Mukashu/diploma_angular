@@ -21,23 +21,20 @@
       <nav>
         <ul>
           <li>
-            <a [class.active]="selectedLink==='services'" (click)="useLink('services')" routerLink="/"
-               fragment="services">Услуги</a>
+            <a [class.active]="selectedLink==='services'" (click)="useLink('services')">Услуги</a>
           </li>
           <li>
-            <a [class.active]="selectedLink==='about'" (click)="useLink('about')" routerLink="/" fragment="about">О
+            <a [class.active]="selectedLink==='about'" (click)="useLink('about')">О
               нас</a>
           </li>
           <li>
-            <a [class.active]="selectedLink==='articles'" (click)="useLink('articles')" routerLink="/"
-               fragment="articles">Статьи</a>
+            <a [class.active]="selectedLink==='articles'" (click)="useLink('articles')">Статьи</a>
           </li>
           <li>
-            <a [class.active]="selectedLink==='reviews'" (click)="useLink('reviews')" routerLink="/" fragment="reviews">Отзывы</a>
+            <a [class.active]="selectedLink==='reviews'" (click)="useLink('reviews')">Отзывы</a>
           </li>
           <li>
-            <a [class.active]="selectedLink==='contacts'" (click)="useLink('contacts')" routerLink="/"
-               fragment="contacts">Контакты</a>
+            <a [class.active]="selectedLink==='contacts'" (click)="useLink('contacts')">Контакты</a>
           </li>
         </ul>
       </nav>
@@ -65,7 +62,7 @@
           Привет, {{ user }}!
         </a>
         <mat-menu #menu="matMenu">
-          <button mat-menu-item>
+          <button mat-menu-item class="menu-header">
             <span (click)="logout()">Выйти</span>
           </button>
         </mat-menu>

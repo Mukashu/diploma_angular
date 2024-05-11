@@ -20,7 +20,7 @@ import {SharedModule} from "./shared/shared.module";
     HeaderComponent,
     LayoutComponent,
     FooterComponent,
-    MainComponent
+    MainComponent,
   ],
   imports: [
     BrowserModule,

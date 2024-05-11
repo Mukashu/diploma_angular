@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
 
   isLogged: boolean = false;
   user: string = '';
-  selectedLink: string = '';
+  selectedLink: string | null = null;
 
   constructor(private authService: AuthService,
               private userService: UserService,
@@ -24,10 +24,16 @@ export class HeaderComponent implements OnInit {
               private activeLinkService: ActiveLinkService,
               private router: Router) {
     this.isLogged = this.authService.getIsLoggedIn();
+    let selectedLinkStorage: string | null = this.activeLinkService.getActiveLink();
 
     if (this.isLogged) {
       this.getUserInfo();
     }
+
+    if (selectedLinkStorage) {
+      this.selectedLink = selectedLinkStorage;
+    }
+
   }
 
   ngOnInit(): void {
@@ -42,7 +48,7 @@ export class HeaderComponent implements OnInit {
     });
 
     this.activeLinkService.activeLink$.subscribe({
-      next: (link: string): void => {
+      next: (link: string | null): void => {
         this.selectedLink = link;
       }
     });
@@ -92,5 +98,7 @@ export class HeaderComponent implements OnInit {
 
   useLink(link: string): void {
     this.selectedLink = link;
+    this.activeLinkService.setActiveLink(link);
+    this.router.navigate(['/'], { fragment: link });
   }
 }

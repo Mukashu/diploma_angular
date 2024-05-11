@@ -1,0 +1,54 @@
+<div class="blog">
+  <div class="container">
+    <div class="blog-title">
+      Блог
+    </div>
+    <div class="blog-head">
+      <div class="blog-applied-filters">
+        <div class="blog-applied-filter" *ngFor="let appliedFilter of appliedFilters">
+          <span>{{ appliedFilter.name }}</span>
+          <a (click)="removeAppliedFilter(appliedFilter)">
+            <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_10937_586)">
+                <line x1="1.93553" y1="3.15002" x2="13.9563" y2="15.1708" stroke="#709FDC" stroke-linecap="round"/>
+                <line x1="13.9236" y1="3.12984" x2="1.90278" y2="15.1507" stroke="#709FDC" stroke-linecap="round"/>
+              </g>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="blog-sorting" *ngIf="!articlesFilter" (click)="showFilter()">
+        <span>Фильтр</span>
+        <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M10 14.5C9.41668 14.5 8.83335 14.275 8.39168 13.8334L2.95835 8.40003C2.71668 8.15837 2.71668 7.75837 2.95835 7.5167C3.20002 7.27503 3.60002 7.27503 3.84168 7.5167L9.27502 12.95C9.67502 13.35 10.325 13.35 10.725 12.95L16.1583 7.5167C16.4 7.27503 16.8 7.27503 17.0417 7.5167C17.2833 7.75837 17.2833 8.15837 17.0417 8.40003L11.6083 13.8334C11.1667 14.275 10.5833 14.5 10 14.5Z"
+            fill="#071739"/>
+        </svg>
+      </div>
+      <app-category-filter [categories]="categories" *ngIf="articlesFilter"></app-category-filter>
+    </div>
+    <div class="blog-body">
+      <div class="blog-body-articles">
+        <app-article-card [article]="article" *ngFor="let article of articles"></app-article-card>
+      </div>
+    </div>
+    <div class="pagination">
+      <a class="prev-arrow">
+        <img src="./assets/images/pagination/prev-arrow.png" alt="arrow">
+      </a>
+      <a class="prev-arrow-dis" *ngIf="false">
+        <img src="./assets/images/pagination/prev-arrow-dis.png" alt="arrow">
+      </a>
+      <div class="pagination-pages">
+        <div class="pagination-page active">1</div>
+        <div class="pagination-page">2</div>
+      </div>
+      <a class="next-arrow">
+        <img src="./assets/images/pagination/next-arrow.png" alt="arrow">
+      </a>
+      <a class="next-arrow-dis" *ngIf="false">
+        <img src="./assets/images/pagination/next-arrow-dis.png" alt="arrow">
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 @import "variables";
+@import "mixins";
 
 html, body {
   margin: 0;
@@ -51,14 +52,29 @@ html, body {
   }
 }
 
-.mat-menu-item {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
-  font-size: 16px;
-  color: $base-text-color;
+.mat-menu-panel {
+  min-height: unset !important;
+  margin-top: 5px;
+  border-radius: 5px !important;
+
+  .mat-menu-content {
+
+    &:not(:empty) {
+      padding: 0;
+    }
+
+    .mat-menu-item {
+
+      &.menu-header {
+        text-align: center;
+        @include Montserrat-Medium-16;
+        min-width: 138px;
+      }
+    }
+  }
 }
 
-.owl-theme .owl-nav.disabled+.owl-dots {
+.owl-theme .owl-nav.disabled + .owl-dots {
   margin-top: 0;
   position: absolute;
   bottom: 20px;
