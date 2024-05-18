@@ -19,8 +19,7 @@ export class BlogComponent implements OnInit {
 
   articles: ArticleType[] = [];
 
-  count: number | null = null;
-  pages: number | null = null;
+  pages: number[] = [];
   articlesFilter: boolean = false;
   activeParams: ActiveParamsType = {categories: []};
   appliedFilters: AppliedFilterType[] = [];
@@ -33,20 +32,16 @@ export class BlogComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.articleService.getArticles().subscribe({
-      next: (articles: ArticlesType): void => {
-        this.articles = articles.items;
-        this.count = articles.count;
-        this.pages = articles.pages;
+    this.categoryService.getCategories().subscribe({
+      next: (data: CategoryType[]): void => {
+        this.categories = data;
 
-        this.categoryService.getCategories().subscribe({
-          next: (data: CategoryType[]): void => {
-            this.categories = data;
+        this.activatedRoute.queryParams.subscribe({
+          next: params => {
+            this.activeParams = ActiveParamsUtil.processParams(params);
+            this.appliedFilters = [];
 
-            this.activatedRoute.queryParams.subscribe(params => {
-              this.activeParams = ActiveParamsUtil.processParams(params);
-
-              this.appliedFilters = [];
+            if (this.activeParams.categories.length > 0) {
               this.activeParams.categories.forEach(category => {
                 for (let i = 0; i < this.categories.length; i++) {
                   if (this.categories[i].url === category) {
@@ -61,6 +56,18 @@ export class BlogComponent implements OnInit {
                   }
                 }
               });
+            }
+
+            this.articleService.getArticles(this.activeParams).subscribe({
+              next: (articles: ArticlesType): void => {
+
+                this.pages = [];
+                for (let i = 1; i <= articles.pages; i++) {
+                  this.pages.push(i);
+                }
+
+                this.articles = articles.items;
+              }
             });
           }
         });
@@ -84,10 +91,36 @@ export class BlogComponent implements OnInit {
 
   removeAppliedFilter(appliedFilter: AppliedFilterType) {
     this.activeParams.categories = this.activeParams.categories.filter(category => category !== appliedFilter.urlParam);
+    this.activeParams.page = 1;
 
     this.router.navigate(['/blog'], {
       queryParams: this.activeParams
     });
+  }
+
+  openPage(page: number): void {
+    this.activeParams.page = page;
+    this.router.navigate(['/blog'], {
+      queryParams: this.activeParams
+    });
+  }
+
+  openNextPage() {
+    if (this.activeParams.page && this.activeParams.page < this.pages.length) {
+      this.activeParams.page++;
+      this.router.navigate(['/blog'], {
+        queryParams: this.activeParams
+      });
+    }
+  }
+
+  openPrevPage() {
+    if (this.activeParams.page && this.activeParams.page > 1) {
+      this.activeParams.page--;
+      this.router.navigate(['/blog'], {
+        queryParams: this.activeParams
+      });
+    }
   }
 }
 

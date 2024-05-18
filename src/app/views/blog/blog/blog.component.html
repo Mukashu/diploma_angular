@@ -32,21 +32,26 @@
         <app-article-card [article]="article" *ngFor="let article of articles"></app-article-card>
       </div>
     </div>
-    <div class="pagination">
-      <a class="prev-arrow">
+    <div class="pagination" *ngIf="pages.length > 1">
+      <a class="prev-arrow"
+         (click)="openPrevPage()"
+         *ngIf="activeParams.page ? activeParams.page !== 1 : false">
         <img src="./assets/images/pagination/prev-arrow.png" alt="arrow">
       </a>
-      <a class="prev-arrow-dis" *ngIf="false">
+      <a class="prev-arrow-dis" *ngIf="activeParams.page ? activeParams.page === 1 : true">
         <img src="./assets/images/pagination/prev-arrow-dis.png" alt="arrow">
       </a>
       <div class="pagination-pages">
-        <div class="pagination-page active">1</div>
-        <div class="pagination-page">2</div>
+        <div class="pagination-page" (click)="openPage(page)"
+             [class.active]="this.activeParams.page ? this.activeParams.page === page : (page === 1)"
+             *ngFor="let page of pages">{{ page }}</div>
       </div>
-      <a class="next-arrow">
+      <a class="next-arrow"
+         (click)="openNextPage()"
+         *ngIf="activeParams.page ? activeParams.page !== pages.length : true">
         <img src="./assets/images/pagination/next-arrow.png" alt="arrow">
       </a>
-      <a class="next-arrow-dis" *ngIf="false">
+      <a class="next-arrow-dis" *ngIf="activeParams.page ? activeParams.page === pages.length : false">
         <img src="./assets/images/pagination/next-arrow-dis.png" alt="arrow">
       </a>
     </div>

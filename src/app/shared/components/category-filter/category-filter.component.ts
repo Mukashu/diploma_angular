@@ -38,6 +38,7 @@ export class CategoryFilterComponent implements OnInit {
       this.activeParams.categories = this.activeParams.categories.filter(item => item !== url);
     }
 
+    this.activeParams.page = 1;
     this.router.navigate(['/blog'], {
       queryParams: this.activeParams
     });

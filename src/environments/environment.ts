@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   api: "http://localhost:3000/api/",
+  localStaticPath: "http://localhost:4200/assets/images/backend/",
 };
 
 /*

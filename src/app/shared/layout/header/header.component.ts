@@ -33,7 +33,6 @@ export class HeaderComponent implements OnInit {
     if (selectedLinkStorage) {
       this.selectedLink = selectedLinkStorage;
     }
-
   }
 
   ngOnInit(): void {

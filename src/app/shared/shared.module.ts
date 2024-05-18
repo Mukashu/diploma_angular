@@ -4,6 +4,7 @@ import { ArticleCardComponent } from './components/article-card/article-card.com
 import {RouterModule} from "@angular/router";
 import { TruncatePipe } from './pipes/truncate.pipe';
 import { CategoryFilterComponent } from './components/category-filter/category-filter.component';
+import { TruncateTitlePipe } from './pipes/truncate-title.pipe';
 
 
 
@@ -11,7 +12,8 @@ import { CategoryFilterComponent } from './components/category-filter/category-f
   declarations: [
     ArticleCardComponent,
     TruncatePipe,
-    CategoryFilterComponent
+    CategoryFilterComponent,
+    TruncateTitlePipe
   ],
   exports: [
     ArticleCardComponent,
