@@ -44,7 +44,8 @@
       <div class="pagination-pages">
         <div class="pagination-page" (click)="openPage(page)"
              [class.active]="this.activeParams.page ? this.activeParams.page === page : (page === 1)"
-             *ngFor="let page of pages">{{ page }}</div>
+             *ngFor="let page of pages">{{ page }}
+        </div>
       </div>
       <a class="next-arrow"
          (click)="openNextPage()"

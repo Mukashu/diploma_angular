@@ -1,0 +1,26 @@
+.loader {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .spinner-image {
+    position: absolute;
+    left: 50%;
+    animation: rotate 2s linear infinite;
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}

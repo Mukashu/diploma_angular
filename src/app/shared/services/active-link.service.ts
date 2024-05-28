@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Subject} from "rxjs";
 
 @Injectable({
@@ -9,7 +9,8 @@ export class ActiveLinkService {
   public activeLink$: Subject<string | null> = new Subject<string | null>();
   private activeLinkKey: string = 'activeLink';
 
-  constructor() { }
+  constructor() {
+  }
 
   setActiveLink(link: string): void {
     sessionStorage.setItem(this.activeLinkKey, link);

@@ -119,5 +119,76 @@
         }
       }
     }
+
+    .article-comments {
+      margin-bottom: 60px;
+
+      .article-frame {
+        margin-bottom: 60px;
+
+        .article-comments-title {
+          @include Lora-Regular-38;
+          color: $base-title-color;
+        }
+
+        .article-comments-post {
+          margin-top: 20px;
+          color: $base-text-color;
+
+          a {
+            color: $base-title-color;
+            cursor: pointer;
+            text-decoration: none;
+          }
+        }
+
+        .article-comments-area {
+          margin-top: 40px;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+
+          .article-comments-area-text {
+            padding: 20px;
+            box-sizing: border-box;
+            width: 818px;
+            height: 248px;
+            background: #FFFFFF;
+            border: 2px solid $base-title-color;
+            border-radius: 3px;
+            font-family: Montserrat, sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            color: $base-text-color;
+            outline: none;
+
+
+            &::placeholder {
+              font-family: Montserrat, sans-serif;
+              font-style: normal;
+              font-weight: 400;
+              font-size: 14px;
+              color: #A8ABA7;
+            }
+          }
+
+          .article-comments-button {
+            max-width: 422px;
+          }
+        }
+      }
+
+      .article-comments-more {
+        margin: 60px 0;
+        font-size: 20px;
+        font-weight: 500;
+        color: $base-title-color;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+      }
+    }
   }
 }

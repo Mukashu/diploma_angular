@@ -100,3 +100,136 @@ html, body {
 .owl-theme .owl-dots .owl-dot.active span {
   background-color: #FFFFFF;
 }
+
+
+.popup {
+  position: fixed;
+  z-index: 200;
+  background-color: rgba(182, 175, 175, 0.49);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  .popup-window {
+    width: 727px;
+    height: 489px;
+    border: 2px solid $base-title-color;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: calc(50% - 280px);
+    left: calc(50% - 348px);
+
+    .popup-close {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      cursor: pointer;
+    }
+
+    .popup-form {
+      display: flex;
+      flex-direction: column;
+      width: 422px;
+      gap: 20px;
+      align-items: center;
+
+      .popup-form-title {
+        @include Lora-Regular-38;
+        color: $base-title-color;
+        text-align: center;
+      }
+
+      .popup-inputs {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 100%;
+
+        .popup-input {
+          width: 100%;
+          position: relative;
+
+          .select-input {
+            width: 100%;
+            color: $base-title-color;
+            cursor: pointer;
+          }
+
+          .popup-select {
+            width: 100%;
+            position: absolute;
+            z-index: 200;
+            border: 2px solid #709FDC;
+            background-color: #FFFFFF;
+            border-radius: 3px;
+            box-sizing: border-box;
+            top: 59px;
+
+            .popup-select-options {
+              margin: 0;
+              padding: 0;
+
+              .popup-select-option {
+                list-style: none;
+                padding: 17px 20px;
+                cursor: pointer;
+
+                &:hover {
+                  background-color: #709FDC;
+                  color: #fff;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .popup-button {
+        position: relative;
+        width: 100%;
+
+        button {
+          width: 100%;
+          padding: 15px;
+        }
+
+        .popup-alert-message {
+          position: absolute;
+          color: red;
+          font-size: 12px;
+          top: 60px;
+        }
+      }
+    }
+  }
+
+  .popup-success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .popup-success-title {
+      @include Lora-Regular-38;
+      color: $base-title-color;
+      margin-bottom: 20px;
+    }
+
+    .popup-success-text {
+      font-weight: 500;
+      margin-bottom: 40px;
+    }
+
+    .popup-success-button {
+
+      button {
+        padding: 10px 20px;
+      }
+    }
+  }
+}
+

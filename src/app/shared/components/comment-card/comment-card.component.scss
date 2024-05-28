@@ -1,0 +1,68 @@
+@import "../../../../assets/styles/_variables";
+
+.comment-card {
+  max-width: 854px;
+  margin-bottom: 40px;
+
+  .comment-card-info {
+    display: flex;
+    gap: 26px;
+    margin-bottom: 15px;
+
+    .comment-card-info-image {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #B9D5FD;
+      border: 2px solid $base-title-color;
+    }
+
+    .comment-card-info-person {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-weight: 600;
+
+      .comment-card-person-name {
+        font-size: 18px;
+        color: $base-title-color;
+      }
+
+      .comment-card-person-date {
+        color: #BEBEBE;
+      }
+    }
+  }
+
+  .comment-card-text {
+    color: $base-text-color;
+    line-height: 140%;
+    margin-bottom: 39px;
+  }
+
+  .comment-card-likes {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-weight: 600;
+    color: $base-text-color;
+
+    .comment-card-like {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      cursor: pointer;
+    }
+
+    .comment-card-dislike {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      cursor: pointer;
+    }
+
+    .comment-card-spam {
+      cursor: pointer;
+    }
+  }
+}

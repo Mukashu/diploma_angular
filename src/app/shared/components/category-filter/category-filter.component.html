@@ -7,7 +7,8 @@
         fill="#071739"/>
     </svg>
   </div>
-  <div class="category-filter-menu" *ngFor="let category of categories" (click)="updateFilterParams(category.url)" [class.active]="activeParams.categories.includes(category.url)">
+  <div class="category-filter-menu" *ngFor="let category of categories" (click)="updateFilterParams(category.url)"
+       [class.active]="activeParams.categories.includes(category.url)">
     <span>{{ category.name }}</span>
     <span class="sign" *ngIf="!activeParams.categories.includes(category.url)">+</span>
     <span class="sign" *ngIf="activeParams.categories.includes(category.url)">-</span>

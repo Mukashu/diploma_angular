@@ -98,6 +98,6 @@ export class HeaderComponent implements OnInit {
   useLink(link: string): void {
     this.selectedLink = link;
     this.activeLinkService.setActiveLink(link);
-    this.router.navigate(['/'], { fragment: link });
+    this.router.navigate(['/'], {fragment: link});
   }
 }

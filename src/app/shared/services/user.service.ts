@@ -13,9 +13,9 @@ export class UserService {
   readonly accessTokenKey: string;
 
   constructor(private http: HttpClient,
-              authService: AuthService,) {
+              private authService: AuthService,) {
 
-    this.accessTokenKey = authService.accessTokenKey;
+    this.accessTokenKey = this.authService.accessTokenKey;
   }
 
   getUserInfo(): Observable<UserInfoType | DefaultResponseType> {

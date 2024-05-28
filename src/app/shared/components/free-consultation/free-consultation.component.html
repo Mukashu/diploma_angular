@@ -1,0 +1,41 @@
+<div class="popup">
+  <div class="popup-window">
+    <div class="popup-close" (click)="closePopupWindow()">
+      <img src="./assets/images/page/close.png" alt="X">
+    </div>
+    <div class="popup-form" *ngIf="showPopupComponents.form" [formGroup]="consultationForm">
+      <div class="popup-form-title">Закажите бесплатную консультацию!</div>
+      <div class="popup-inputs">
+        <div class="popup-input">
+          <input type="text" class="input popup-input"
+                 [ngStyle]="{'border-color': consultationForm.get('name')?.invalid
+                 && (consultationForm.get('name')?.dirty || consultationForm.get('name')?.touched) ? 'red' : ''}"
+                 placeholder="Ваше имя"
+                 formControlName="name">
+        </div>
+        <div class="popup-input">
+          <input type="text" class="input popup-input"
+                 [ngStyle]="{'border-color': consultationForm.get('phone')?.invalid
+                 && (consultationForm.get('phone')?.dirty || consultationForm.get('phone')?.touched) ? 'red' : ''}"
+                 placeholder="Ваш номер телефона"
+                 formControlName="phone">
+        </div>
+      </div>
+      <div class="popup-button">
+        <button class="button" [disabled]="consultationForm.invalid" (click)="getConsultation()">Заказать консультацию
+        </button>
+        <div class="popup-alert-message" *ngIf="showPopupComponents.alert">Произошла ошибка при отправке формы,
+          попробуйте еще раз.
+        </div>
+      </div>
+    </div>
+    <div class="popup-success" *ngIf="showPopupComponents.success">
+      <div class="popup-success-title">Спасибо за вашу заявку!</div>
+      <div class="popup-success-text">Мы свяжемся с вами при первой же возможности.</div>
+      <div class="popup-success-button">
+        <button class="button" (click)="closePopupWindow()">Окей</button>
+      </div>
+    </div>
+  </div>
+</div>
+

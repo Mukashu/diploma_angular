@@ -1,11 +1,12 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { BlogRoutingModule } from './blog-routing.module';
+import {BlogRoutingModule} from './blog-routing.module';
 import {BlogComponent} from "./blog/blog.component";
-import { ArticleComponent } from './article/article.component';
+import {ArticleComponent} from './article/article.component';
 import {SharedModule} from "../../shared/shared.module";
 import {MatMenuModule} from "@angular/material/menu";
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -17,7 +18,9 @@ import {MatMenuModule} from "@angular/material/menu";
     CommonModule,
     BlogRoutingModule,
     SharedModule,
-    MatMenuModule
+    MatMenuModule,
+    FormsModule
   ]
 })
-export class BlogModule { }
+export class BlogModule {
+}

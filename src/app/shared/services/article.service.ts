@@ -5,7 +5,7 @@ import {ArticleType} from "../../../types/article.type";
 import {environment} from "../../../environments/environment";
 import {ArticlesType} from "../../../types/articles.type";
 import {ActiveParamsType} from "../../../types/active-params.type";
-import {FullArticleWithCommentsType} from "../../../types/fullArticleWithComments.type";
+import {FullArticleWithCommentsType} from "../../../types/full-article-with-comments.type";
 
 @Injectable({
   providedIn: 'root'

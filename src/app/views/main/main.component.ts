@@ -5,6 +5,9 @@ import {ArticleType} from "../../../types/article.type";
 import {ActivatedRoute} from "@angular/router";
 import {ViewportScroller} from "@angular/common";
 import {ActiveLinkService} from "../../shared/services/active-link.service";
+import {RequestService} from "../../shared/services/request.service";
+import {ServiceType} from "../../../types/service.type";
+import {CarouselType} from "../../../types/carousel.type";
 
 @Component({
   selector: 'app-main',
@@ -29,28 +32,31 @@ export class MainComponent implements OnInit {
     startPosition: 1
   };
 
-  main = [
+  main: CarouselType[] = [
     {
       image: 'main3.png',
       category: 'Новость дня',
       title: '<span>6 место</span> в ТОП-10 SMM-агенств Москвы!',
       text: 'Мы благодарим каждого, кто голосовал за нас!',
+      service: 'Реклама'
     },
     {
       image: 'main1.png',
       category: 'Предложение месяца',
       title: 'Продвижение в Instagram для вашего бизнеса <span>-15%</span>!',
       text: false,
+      service: 'Продвижение'
     },
     {
       image: 'main2.png',
       category: 'Акция',
       title: 'Нужен грамотный <span>копирайтер</span>?',
       text: 'Весь декабрь у нас действует акция на работу копирайтера.',
+      service: 'Копирайтинг'
     },
   ];
 
-  services = [
+  services: ServiceType[] = [
     {
       image: 'services1.png',
       title: 'Создание сайтов',
@@ -154,7 +160,11 @@ export class MainComponent implements OnInit {
     nav: false
   };
 
+  showPopup: boolean = false;
+  selectedOption: string | null = null;
+
   constructor(private articleService: ArticleService,
+              private requestService: RequestService,
               private activeLinkService: ActiveLinkService,
               private viewportScroller: ViewportScroller,
               private route: ActivatedRoute) {
@@ -173,6 +183,10 @@ export class MainComponent implements OnInit {
         this.viewportScroller.scrollToAnchor(fragment);
       }
     });
+
+    this.requestService.showPopup$.subscribe((show: boolean) => {
+      this.showPopup = show;
+    });
   }
 
   removeActiveLink(): void {
@@ -180,4 +194,8 @@ export class MainComponent implements OnInit {
     this.activeLinkService.activeLink$.next(null);
   }
 
+  showPopupWindow(service: string) {
+    this.showPopup = true;
+    this.selectedOption = service;
+  }
 }

@@ -48,16 +48,16 @@
       <div class="footer-info-phone">
         <div class="info-title">Телефон</div>
         <div>
-          <a  class="footer-info-phone-text" href="tel:+74993431334">
+          <a class="footer-info-phone-text" href="tel:+74993431334">
             +7 (499) 343-13-34
           </a>
         </div>
-        <button class="button footer-btn">Перезвоните мне</button>
+        <button class="button footer-btn" (click)="showPopupWindow()">Перезвоните мне</button>
       </div>
       <div class="footer-info-mail">
         <div class="info-title">E-mail</div>
         <div>
-          <a  class="footer-info-mail-text" href="mailto:info@itstorm.com">
+          <a class="footer-info-mail-text" href="mailto:info@itstorm.com">
             info@itstorm.com
           </a>
         </div>
@@ -96,3 +96,4 @@
     </div>
   </div>
 </footer>
+<app-free-consultation *ngIf="showPopup"></app-free-consultation>

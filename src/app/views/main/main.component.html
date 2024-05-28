@@ -7,7 +7,7 @@
             <div class="main-category">{{ item.category }}</div>
             <div [innerHTML]="item.title" class="main-title"></div>
             <div class="main-text" *ngIf="item.text">{{ item.text }}</div>
-            <button class="button main-carousel-button">Подробнее</button>
+            <button class="button main-carousel-button" (click)="showPopupWindow(item.service)">Подробнее</button>
           </div>
         </ng-template>
       </owl-carousel-o>
@@ -36,7 +36,7 @@
         <div class="services-card-text">{{ item.text }}</div>
         <div class="services-card-price">
           <div>От {{ item.price }}₽</div>
-          <button class="button services-button">Подробнее</button>
+          <button class="button services-button" (click)="showPopupWindow(item.title)">Подробнее</button>
         </div>
       </div>
     </div>
@@ -177,3 +177,4 @@
     </div>
   </div>
 </section>
+<app-order [services]="services" [selectedOption]="selectedOption" *ngIf="showPopup"></app-order>
